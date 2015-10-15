@@ -1,0 +1,9 @@
+{% if juego %}
+    <ul>
+    {% for n in juego %}
+        <li><a href="/juegos/{{ n.id }}/">{{ n.titulo }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay juegos</p>
+{% endif %}
