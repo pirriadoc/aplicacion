@@ -18,6 +18,6 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    url(r'^juegos/', include('comven.urls')),
+    url(r'^juegos/', include('comven.urls', namespace="comven")),
     url(r'^admin/', include(admin.site.urls)),
 ]
