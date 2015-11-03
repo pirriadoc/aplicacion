@@ -20,4 +20,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^juegos/', include('comven.urls', namespace="comven")),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^registro/', 'comven.views.registro', name='registro')
 ]
