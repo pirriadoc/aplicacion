@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from comven.views import Registro
 
 
 urlpatterns = [
-    url(r'^juegos/', include('comven.urls', namespace="comven")),
+    url(r'^$', include('comven.urls', namespace="comven")),
+#    url(r'^juegos/', include('comven.urls', namespace="comven")),
+    url(r'^registro/',  include('comven.urls', namespace="comven")),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^registro/', 'comven.views.registro', name='registro')
+
 ]
