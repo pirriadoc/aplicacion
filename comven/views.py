@@ -9,6 +9,7 @@ from django.views.generic import TemplateView,ListView
 
 from .forms import Registro
 from .models import Juego, Cliente, Empresa
+
 # Create your views here.
 
 #vistas al modo tradicional
@@ -48,7 +49,7 @@ class Actualizarcliente(UpdateView):
     success_url = '/'
 class Borrarcliente(DeleteView):
     model = Cliente
-    success_url = reverse_lazy('registro')
+    success_url = '/'
 #vistas genericas
 
 #class IndexView(generic.ListView):
