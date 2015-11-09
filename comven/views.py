@@ -40,13 +40,15 @@ class Crearcliente(CreateView):
     fields = ['nombre', 'direccion']
     success_url = '/'
 #    def form_valid(self, form):
+#        print 'save'
 #        form.save()
 class Actualizarcliente(UpdateView):
     model = Cliente
     fields = ['nombre', 'direccion']
+    success_url = '/'
 class Borrarcliente(DeleteView):
     model = Cliente
-    success_url = reverse_lazy('cliente-list')
+    success_url = reverse_lazy('registro')
 #vistas genericas
 
 #class IndexView(generic.ListView):
