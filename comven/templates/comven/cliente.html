@@ -2,9 +2,9 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'comven/style.css' %}" />
 
-{% if registro %}
+{% if cliente %}
     <ul>
-    {% for n in registro %}
+    {% for n in cliente %}
         <li><a href="/cliente/{{ n.id }}/">{{ n.nombre }}</a></li>
     {% endfor %}
     </ul>

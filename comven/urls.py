@@ -1,12 +1,13 @@
 from django.conf.urls import url
-from . import views
-from .views import Crearcliente, Actualizarcliente, Borrarcliente, Registro
+from .views import CrearCliente, ActualizarCliente, BorrarCliente, ListaCliente, DetailView, IndexView
 
 
 urlpatterns = [
-    url(r'^$', views.Registro.as_view(), name='lista'),
-#   url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-    url(r'^crear/$', Crearcliente.as_view(), name='crear'),
-    url(r'^(?P<pk>[0-9]+)/$', Actualizarcliente.as_view(), name='actualizar'),
-    url(r'(?P<pk>[0-9]+)/borrar/$', Borrarcliente.as_view(), name='borrar'),
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^juegos/$', IndexView.as_view(), name='index'),
+    url(r'^juegos/(?P<pk>[0-9]+)/$', DetailView.as_view(), name='detail'),
+    url(r'^cliente/$', ListaCliente.as_view(), name='cliente'),
+    url(r'^cliente/crear/$', CrearCliente.as_view(), name='crear'),
+    url(r'^cliente/actualizar/(?P<pk>[0-9]+)/$', ActualizarCliente.as_view(), name='actualizar'),
+    url(r'^cliente/borrar/(?P<pk>[0-9]+)/$', BorrarCliente.as_view(), name='borrar'),
 ]

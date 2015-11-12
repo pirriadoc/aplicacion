@@ -31,23 +31,23 @@ class DetailView(generic.DetailView):
     model = Juego
     fields = ['titulo']
 #Vista de registro
-class Registro(generic.ListView):
-    template_name = "comven/registro.html"
+class ListaCliente(generic.ListView):
+    template_name = "comven/cliente.html"
     model = Cliente
-    context_object_name='registro'
+    context_object_name='cliente'
 #Vistas basadas en clases para los registros
-class Crearcliente(CreateView):
+class CrearCliente(CreateView):
     model = Cliente
     fields = ['nombre', 'direccion']
     success_url = '/'
 #    def form_valid(self, form):
 #        print 'save'
 #        form.save()
-class Actualizarcliente(UpdateView):
+class ActualizarCliente(UpdateView):
     model = Cliente
     fields = ['nombre', 'direccion']
     success_url = '/'
-class Borrarcliente(DeleteView):
+class BorrarCliente(DeleteView):
     model = Cliente
     success_url = '/'
 #vistas genericas

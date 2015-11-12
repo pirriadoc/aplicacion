@@ -19,9 +19,9 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    url(r'^$', include('comven.urls', namespace="comven")),
-#    url(r'^juegos/', include('comven.urls', namespace="comven")),
-    url(r'^registro/',  include('comven.urls', namespace="comven")),
+    url(r'^', include('comven.urls', namespace="comven")),
+#    url(r'^juegos/', include('comven.urls', namespace="detail")),
+#    url(r'^registro/',  include('comven.urls', namespace="comven")),
     url(r'^admin/', include(admin.site.urls)),
 
 ]
