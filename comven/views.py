@@ -6,8 +6,10 @@ from django.views import generic
 from django.core.context_processors import csrf
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView,ListView
+from django.views.generic.base import View
+from django.contrib.auth import authenticate, login, logout
 
-from .forms import Registro
+from .forms import LoginForm
 from .models import Juego, Cliente, Empresa
 
 # Create your views here.
@@ -30,15 +32,16 @@ class DetailView(generic.DetailView):
     template_name='comven/detail.html'
     model = Juego
     fields = ['titulo']
-#Vista de registro
+#Vista de Cliente
 class ListaCliente(generic.ListView):
     template_name = "comven/cliente.html"
     model = Cliente
     context_object_name='cliente'
+
 #Vistas basadas en clases para los registros
 class CrearCliente(CreateView):
     model = Cliente
-    fields = ['nombre', 'direccion']
+    fields = ['nombre','direccion']
     success_url = '/'
 #    def form_valid(self, form):
 #        print 'save'
@@ -50,16 +53,24 @@ class ActualizarCliente(UpdateView):
 class BorrarCliente(DeleteView):
     model = Cliente
     success_url = '/'
-#vistas genericas
+#Vistas para login y logout
+def login_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            success_url = '/'
+        else:
+            messages.error(request, 'Account not available.')
+    else:
+         messages.error(request, 'Password incorrect or account not available.')
+    return HttpResponseRedirect ('/')
 
-#class IndexView(generic.ListView):
-#    template_name = 'comven/index.html'
-#    context_name = 'juego'
+def logout_view(request):
+    logout(request)
+    success_url='/'
 
-#    def get_queryset(self):
-#        """Return the last five published questions."""
-#        return Juego.objects.order_by('-titulo')[:5]
 
-#class DetailView(generic.DetailView):
-#    model = Juego
-#    template_name = 'comven/index.html'
+

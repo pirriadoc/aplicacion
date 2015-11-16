@@ -4,7 +4,7 @@ from .views import CrearCliente, ActualizarCliente, BorrarCliente, ListaCliente,
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^juegos/$', IndexView.as_view(), name='index'),
+    url(r'^juegos/$', IndexView.as_view(), name='index2'),
     url(r'^juegos/(?P<pk>[0-9]+)/$', DetailView.as_view(), name='detail'),
     url(r'^cliente/$', ListaCliente.as_view(), name='cliente'),
     url(r'^cliente/crear/$', CrearCliente.as_view(), name='crear'),
