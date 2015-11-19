@@ -1,5 +1,7 @@
+{% extends "base.html" %}
 {% load staticfiles %}
 
+{% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'comven/style.css' %}" />
 
 {% if registro %}
@@ -11,3 +13,4 @@
 {% else %}
     <p>No hay clientes</p>
 {% endif %}
+{% endblock %}

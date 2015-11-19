@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 <form action="." method="post">{% csrf_token %}
 <ul>
 
@@ -5,5 +8,6 @@
 
 </ul>
 
-<input type="submit" name="submit" value="juego">
+<input type="submit" name="submit" value="borrar">
 </form>
+{% endblock %}

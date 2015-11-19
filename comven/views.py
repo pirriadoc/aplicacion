@@ -95,7 +95,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    success_url='/'
+    success_url='/juego/'
 
 
 
