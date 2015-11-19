@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <link rel="stylesheet" href="style.css" />
     <title>{% block title %}COMVEN{% endblock %}</title>
 </head>
 
 <body>
+    <div class="titulo_principal">{% block section_title %}
+    {% if user.is_authenticated %}
+        Bienvenido, {{ request.user }}
+    {% else %}
+        Bienvenido invitado, le recuerdo que para algunas caracteristicas debera iniciar sesion
+        {% endif %}{% endblock %}
     <div id="sidebar">
         {% block sidebar %}
         <ul>
