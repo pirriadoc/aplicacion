@@ -44,6 +44,10 @@ class ListaCliente(generic.ListView):
     template_name = "comven/cliente.html"
     model = Cliente
     context_object_name='cliente'
+class DetailCliente(generic.DetailView):
+    template_name='comven/detail_cliente.html'
+    model = Cliente
+    fields = ['nombre']
 
 #Vistas basadas en clases para los clientes
 

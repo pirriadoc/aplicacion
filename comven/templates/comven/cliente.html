@@ -7,7 +7,7 @@
 {% if cliente %}
     <ul>
     {% for n in cliente %}
-        <li><a href="/cliente/{{ n.id }}/">{{ n.nombre }}</a></li>
+        <li><a href="{% url 'comven:detail_cliente' n.id %}">{{ n.nombre }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
