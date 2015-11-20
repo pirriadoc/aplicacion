@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from .forms import LoginForm
-from .models import Juego, Cliente, Empresa
+from .models import Juego, Cliente, Stock
 
 # Create your views here.
 
