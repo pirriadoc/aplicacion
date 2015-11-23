@@ -70,14 +70,14 @@ class BorrarCliente(DeleteView):
 #Vistas basadas en clases para los juegos
 class CrearJuego(CreateView):
     model = Juego
-    fields = ['titulo', 'empresa', 'genero', 'plataforma', 'descripcion', 'cantidad']
+    fields = ['titulo', 'empresa', 'genero', 'plataforma', 'descripcion']
     success_url = '/'
 #    def form_valid(self, form):
 #        print 'save'
 #        form.save()
 class ActualizarJuego(UpdateView):
     model = Juego
-    fields = ['titulo', 'empresa', 'genero', 'plataforma', 'descripcion', 'cantidad']
+    fields = ['titulo', 'empresa', 'genero', 'plataforma', 'descripcion']
     success_url = '/'
 class BorrarJuego(DeleteView):
     model = Juego
@@ -100,6 +100,8 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/logout/')
+
+
 
 
 

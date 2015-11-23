@@ -30,3 +30,5 @@ class Stock(models.Model):
 
 
 
+
+

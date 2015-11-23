@@ -39,7 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'comven',
+    'registration'
 )
+
+ACCOUNT_ACTIVATION_DAYS = 7 # una semana para activar la cuenta
+REGISTRATION_AUTO_LOGIN = True # al pinchar en el enlace enviado al registrarse el usuario se loguea automaticamente.
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
