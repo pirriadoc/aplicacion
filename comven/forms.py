@@ -1,5 +1,6 @@
 from django import forms
 from .models import Cliente
+from django.contrib.auth.models import User
 
 #class Registro(forms.ModelForm):
 #    class Meta:

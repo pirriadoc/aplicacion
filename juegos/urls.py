@@ -16,8 +16,6 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-
-
 urlpatterns = [
     url(r'^', include('comven.urls', namespace="comven")),
 #    url(r'^juegos/', include('comven.urls', namespace="detail")),
