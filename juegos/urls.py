@@ -21,6 +21,6 @@ urlpatterns = [
 #    url(r'^juegos/', include('comven.urls', namespace="detail")),
 #    url(r'^registro/',  include('comven.urls', namespace="comven")),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('django.contrib.auth.urls')),
+#    url(r'^', include('django.contrib.auth.urls')),
     url(r'^accounts/', include('registration.backends.default.urls')),
 ]
