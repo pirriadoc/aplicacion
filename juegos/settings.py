@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'comven',
-    'registration'
+    'registration',
+    'bootstrap3'
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7 # una semana para activar la cuenta

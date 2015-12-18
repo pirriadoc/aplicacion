@@ -1,25 +1,33 @@
-<!DOCTYPE html>
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
 <head>
-    <link rel="stylesheet" href="style.css" />
     <title>{% block title %}COMVEN{% endblock %}</title>
 </head>
 
 <body>
+
     <div class="titulo_principal">{% block section_title %}
     {% if user.is_authenticated %}
         Bienvenido, {{ request.user }}
     {% else %}
         Bienvenido invitado, le recuerdo que para algunas caracteristicas debera iniciar sesion
         {% endif %}{% endblock %}
+
     <div id="sidebar">
         {% block sidebar %}
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/accounts/register">Registrarse</a></li>
-            <li><a href="/accounts/login/">Login</a></li>
-            <li><a href="/accounts/logout/">Logout</a></li>
-            <li><a href="/juego/crear">Registrar juego</a></li>
-        </ul>
+            {% bootstrap_button "Inicio" button_type="link" href="/" button_class="btn-primary" %}
+            {% bootstrap_button "Registrarse" button_type="link" href="/accounts/register/" button_class="btn-primary" %}
+            {% bootstrap_button "Iniciar sesión" button_type="link" href="/accounts/login/" button_class="btn-primary" %}
+            {% bootstrap_button "Cerrar sesión" button_type="link" href="/accounts/logout/" button_class="btn-primary" %}
+            {% bootstrap_button "Añadir juego" button_type="link" href="/juego/crear/" button_class="btn-primary" %}
         {% endblock %}
     </div>
 
@@ -28,3 +36,4 @@
     </div>
 </body>
 </html>
+

@@ -1,9 +1,16 @@
 {% extends "base.html" %}
+{# Load the tag library #}
+{% load bootstrap3 %}
 
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 {% load staticfiles %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'comven/style.css' %}" />
 
 {% if juego %}
     <ul>
