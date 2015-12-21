@@ -5,11 +5,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'comven/style.css' %}" />
 
 {% if cliente %}
-    <ul>
+    <div class="list-group">
     {% for n in cliente %}
-        <li><a href="{% url 'comven:detail_cliente' n.id %}">{{ n.nombre }}</a></li>
+        <li class="list-group-item"><a href="{% url 'comven:detail_cliente' n.id %}">{{ n.nombre }}</a></li>
     {% endfor %}
-    </ul>
+    </div>
 {% else %}
     <p>No hay clientes</p>
 {% endif %}

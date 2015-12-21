@@ -1,13 +1,23 @@
 {% extends "base.html" %}
 {% load i18n %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 {% block title %}{% trans "Registrese, por favor" %}{% endblock %}
 
 {% block content %}
 <form method="post" action="">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="{% trans 'Submit' %}" />
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-success">
+            {% bootstrap_icon "star" %} Aceptar
+        </button>
+    {% endbuttons %}
 </form>
 {% endblock %}
 

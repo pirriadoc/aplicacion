@@ -1,38 +1,25 @@
-{% extends "base.html" %}
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block title %}{% trans "Log in" %}{% endblock %}
 
 {% block content %}
-
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
-
-<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td> usuario </td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td> contraseña </td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
+<form method="post" action="">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-success">
+            {% bootstrap_icon "star" %} Aceptar
+        </button>
+    {% endbuttons %}
+    <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
+<p>{% trans "¿Olvidó su contraseña?" %} <a href="{% url 'auth_password_reset' %}">{% trans "Recuperación" %}</a>.</p>
+<p>{% trans "¿No es miembro?" %} <a href="{% url 'registration_register' %}">{% trans "Registrese" %}</a>.</p>
 {% endblock %}
