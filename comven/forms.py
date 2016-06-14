@@ -15,6 +15,6 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput, label="Password")
 
 class Registro(RegistrationForm):
-    nombre = models.CharField(max_length=200)
-    direccion = models.CharField(max_length=200)
+    nombre = forms.CharField(max_length=200)
+    direccion = forms.CharField(max_length=200)
 
