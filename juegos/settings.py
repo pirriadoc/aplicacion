@@ -144,9 +144,9 @@ AUTH_LDAP_GROUP_SEARCH = LDAPSearch("ou=Groups,dc=example,dc=com",
 AUTH_LDAP_GROUP_TYPE = PosixGroupType(name_attr="cn")
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {
-    "is_active": "cn=Accounting Managers,ou=Groups,dc=example,dc=com",
-    "is_staff": "cn=Accounting Managers,ou=groups,dc=example,dc=com",
-    "is_superuser": "cn=Accounting Managers,ou=Groups,dc=example,dc=com"
+    "is_active": "uid=tmorris,ou=People,dc=example,dc=com",
+    "is_staff": "uid=tmorris,ou=People,dc=example,dc=com",
+    "is_superuser": "uid=tmorris,ou=People,dc=example,dc=com"
 }
 
 AUTH_LDAP_FIND_GROUP_PERMS = True
