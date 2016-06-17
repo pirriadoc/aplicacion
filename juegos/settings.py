@@ -123,3 +123,35 @@ STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+import ldap
+from django_auth_ldap.config import LDAPSearch, PosixGroupType
+
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+AUTH_LDAP_SERVER_URI = "ldap://192.168.10.22"
+
+AUTH_LDAP_BIND_DN = "cn=Directory Manager"
+AUTH_LDAP_BIND_PASSWORD = "secret"
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=example,dc=com",
+    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("ou=Groups,dc=example,dc=com",
+    ldap.SCOPE_SUBTREE, "(objectClass=PosixGroup)"
+)
+AUTH_LDAP_GROUP_TYPE = PosixGroupType(name_attr="cn")
+
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {
+    "is_active": "cn=Accounting Managers,ou=Groups,dc=example,dc=com",
+    "is_staff": "cn=Accounting Managers,ou=groups,dc=example,dc=com",
+    "is_superuser": "cn=Accounting Managers,ou=Groups,dc=example,dc=com"
+}
+
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "givenName",
+    "last_name": "sn"
+}
